@@ -6,6 +6,7 @@ The goal of this project is to provide feedback to a user on whether a door is d
 Currently it only supports network-attached Foscam cameras.
 
 Process:
+
 1. Load image from the camera
 2. Look for certain objects in the image
 3. If the objects are all detected the door is closed, if not it's open
