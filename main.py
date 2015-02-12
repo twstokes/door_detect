@@ -35,7 +35,7 @@ if __name__ == '__main__':
         # output the state of the door
         print "Current state: ", currentState[0]
 
-        previousState = currentState
+        #previousState = currentState
         time.sleep(.2)
 
 
