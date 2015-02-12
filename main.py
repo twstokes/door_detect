@@ -32,6 +32,7 @@ if __name__ == '__main__':
         # get the current state of the door
         currentState = detector.detectState(inputImage)
         
+        # experimental
         #if(previousState != None):
         #    statesDiff = Detector.diffStates(currentState, previousState)
         #    print statesDiff

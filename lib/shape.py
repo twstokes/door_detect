@@ -7,6 +7,12 @@ class Shape:
     # create an OpenCV image for this shape's template
     self.templateImage = cv2.imread(templateImageFile, 0)
     self.width, self.height = self.templateImage.shape[::-1]
+    # by default the shape is not found
+    self.detected = False
+    self.maxValue = False
+    self.middle = False
+    self.topLeft = False
+    self.bottomRight = False
 
   def setMatchInfo(self, topLeft, bottomRight, maxValue):
     # set middle coords of the square that found the shape
