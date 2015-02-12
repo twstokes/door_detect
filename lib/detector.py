@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 from lib import Shape
 
+# class that detects objects and overlays a box
 class Detector:
-
   def __init__(self, threshold, shapes, templateDir, horizAlignThresh):
     self.threshold = threshold
     self.shapes = shapes
@@ -14,9 +14,6 @@ class Detector:
   def detectAndOverlay(self, image, shape):
       # convert input image to gray
       imageGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-      # width and height of our template image
-      #w, h = template.shape[::-1]
 
       # search for matches
       result = cv2.matchTemplate(imageGray, shape.templateImage, cv2.TM_CCOEFF_NORMED)
@@ -34,13 +31,7 @@ class Detector:
 
           shape.setMatchInfo(topLeft, bottomRight, maxVal)
 
-          # overlay a rectangle on our original image 
-          # bgr color
-          # PERFORMANCE TESTING cv2.rectangle(image,topLeft, bottomRight, (255, 0, 0), 2)
-
       return
-
-
 
   # looks for shapes in an image and returns whether they were found or not
   # if found returns top left and bottom right coords of surrounding box
@@ -57,7 +48,6 @@ class Detector:
           self.detectAndOverlay(image, newShape)
           # add the shape to our dict
           shapesDict[template] = newShape
-
 
       # return our dictionary
       return shapesDict
@@ -99,6 +89,7 @@ class Detector:
 
       return state, shapesDict
 
+  # currently experimental
   def diffStates(self, state1, state2):
       diffDict = {}
 

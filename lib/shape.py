@@ -1,8 +1,7 @@
 import cv2
 
-# object to store our shapes
+# class to store our shapes
 class Shape:
-
   def __init__(self, name, templateImageFile):
     self.name = name
     # create an OpenCV image for this shape's template

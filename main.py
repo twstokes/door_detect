@@ -26,18 +26,20 @@ if __name__ == '__main__':
         # create an opencv image with webcam data
         inputImage = cv2.imdecode(imageDataArray, cv2.IMREAD_ANYCOLOR)
 
+        # set up our detector object
         detector = Detector(config.THRESHOLD, config.SHAPES, config.TEMPLATEDIR, config.HORIZ_ALIGN_THRESH)
 
+        # get the current state of the door
         currentState = detector.detectState(inputImage)
         
         #if(previousState != None):
         #    statesDiff = Detector.diffStates(currentState, previousState)
         #    print statesDiff
 
+        # output the state of the door
         print currentState[0]
         # output image with overlays
         cv2.imwrite(config.OUTPUTDIR+'/'+str(time.time())+'.png', inputImage)
-        # sleep for a second
         #previousState = currentState
         time.sleep(.2)
 

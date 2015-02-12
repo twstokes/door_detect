@@ -1,7 +1,7 @@
 import httplib
 
+# class used to interact and fetch data with a Foscam camera
 class Foscam:
-
   def __init__(self, address, username, password):
     self.address = address
     self.username = username
