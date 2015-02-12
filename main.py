@@ -1,7 +1,6 @@
 import config
 import sys
 import traceback
-
 import time
 
 from lib import Detector
