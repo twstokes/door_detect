@@ -1,0 +1,13 @@
+Check the alignment of the two objects detected - if within a certain threshold this better confirms we're looking at the right thing
+
+Can compare previous images to see if things have changed - this could be how we detect if a door open or close is in progress
+
+Time how quick the door is to get realistic wait times
+
+Do we need to make sure garage_close and garage_open aren't ran at the same time? Otherwise they could repeat if in infinite loops
+
+Using stdout to read from our script will probably cause issues because of: 
+
+"Corrupt JPEG data: 1 extraneous bytes before marker 0xd9" warning that pops up (http://stackoverflow.com/questions/9131992/how-can-i-catch-corrupt-jpegs-when-loading-an-image-with-imread-in-opencv)
+
+Keep in mind that multiple devices loading the webcam images / stream will slow things down!

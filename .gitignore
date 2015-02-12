@@ -1,0 +1,5 @@
+output/*
+templates/*
+*.pyc
+*.pyo
+config.py

@@ -1,0 +1,18 @@
+# camera username
+USERNAME = 'CAMERA_USERNAME_HERE'
+# camera password
+PASSWORD = 'CAMERA_PASSWORD_HERE'
+# camera IP
+CAMADDRESS = 'CAMERA_IP_HERE'
+
+# where our shape templates are loaded - expects png files
+TEMPLATEDIR = 'templates'
+# where we save an image
+OUTPUTDIR = 'output'
+# matching threshold percentage
+THRESHOLD = 83.0
+# what shapes we're loading
+SHAPES = ('triangle', 'pentagon')
+# how many pixels the horizontal alignment can deviate
+# before we declare a failure in proper detection
+HORIZ_ALIGN_THRESH = 20
