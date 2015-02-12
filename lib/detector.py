@@ -1,14 +1,17 @@
 import numpy as np
 import cv2
 from lib import Shape
+import time
 
 # class that detects objects and overlays a box
 class Detector:
-  def __init__(self, threshold, shapes, templateDir, horizAlignThresh):
+  def __init__(self, threshold, shapes, templateDir, horizAlignThresh, outputDir, outputDetectionImage):
     self.threshold = threshold
     self.shapes = shapes
     self.templateDir = templateDir
     self.horizAlignThresh = horizAlignThresh
+    self.outputDir = outputDir
+    self.outputDetectionImage = outputDetectionImage
 
   # detects image and overlays box on region of detection
   def detectAndOverlay(self, image, shape):
@@ -25,10 +28,9 @@ class Detector:
       if maxVal >= (self.threshold / 100):
           # set top left coord
           topLeft = maxLoc
-
           # set bottom right coord
           bottomRight = (topLeft[0] + shape.width, topLeft[1] + shape.height)
-
+          # set shape values
           shape.setMatchInfo(topLeft, bottomRight, maxVal)
 
       return
@@ -86,6 +88,12 @@ class Detector:
               state = "fail"
       else:
           state = "open"
+
+      # output detection image based on our passed in option
+      if self.outputDetectionImage == True:
+        # output image with overlays
+        cv2.imwrite(self.outputDir+'/'+str(time.time())+'.png', inputImage)
+
 
       return state, shapesDict
 

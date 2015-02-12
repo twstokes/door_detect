@@ -1,8 +1,7 @@
 import config
 import sys
 import traceback
-import numpy as np
-import cv2
+
 import time
 
 from lib import Detector
@@ -16,32 +15,27 @@ if __name__ == '__main__':
     previousState = None
 
     while True:
-        # get live webcam data
+        # set up camera object
         camera = Foscam(config.CAMADDRESS, config.USERNAME, config.PASSWORD)
-        webcamImage = camera.getSnapshot()
 
-        # convert webcam returned data to array
-        imageDataArray = np.asarray(bytearray(webcamImage), dtype=np.uint8)
-
-        # create an opencv image with webcam data
-        inputImage = cv2.imdecode(imageDataArray, cv2.IMREAD_ANYCOLOR)
+        # get live webcam data in OpenCV format
+        inputImage = camera.getSnapshotCV()
 
         # set up our detector object
-        detector = Detector(config.THRESHOLD, config.SHAPES, config.TEMPLATEDIR, config.HORIZ_ALIGN_THRESH)
+        detector = Detector(config.THRESHOLD, config.SHAPES, config.TEMPLATEDIR, config.HORIZ_ALIGN_THRESH, config.OUTPUTDIR, config.OUTPUT_DETECTION_IMAGE)
 
         # get the current state of the door
         currentState = detector.detectState(inputImage)
         
         # experimental
         #if(previousState != None):
-        #    statesDiff = Detector.diffStates(currentState, previousState)
+        #    statesDiff = detector.diffStates(currentState, previousState)
         #    print statesDiff
 
         # output the state of the door
-        print currentState[0]
-        # output image with overlays
-        cv2.imwrite(config.OUTPUTDIR+'/'+str(time.time())+'.png', inputImage)
-        #previousState = currentState
+        print "Current state: ", currentState[0]
+
+        previousState = currentState
         time.sleep(.2)
 
 
