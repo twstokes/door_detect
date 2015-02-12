@@ -16,3 +16,5 @@ SHAPES = ('triangle', 'pentagon')
 # how many pixels the horizontal alignment can deviate
 # before we declare a failure in proper detection
 HORIZ_ALIGN_THRESH = 20
+# output image with detection box
+OUTPUT_DETECTION_IMAGE = True
