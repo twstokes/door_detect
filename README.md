@@ -5,7 +5,7 @@ The goal of this project is to provide feedback to a user on whether a door is d
 
 Currently it only supports network-attached Foscam cameras.
 
-Process:
+##### Process:
 
 1. Load image from the camera
 2. Look for certain objects in the image
