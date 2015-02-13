@@ -21,4 +21,4 @@ Currently it only supports network-attached Foscam cameras.
 
 #### Notes:
 
-If you see the following in stdout: "Corrupt JPEG data: 2 extraneous bytes before marker 0xd9" it appears to be a known issue with a library OpenCV uses. Since we're just using it for outputting the status, it's not a big deal.
+If you see the following in stdout: "Corrupt JPEG data: 2 extraneous bytes before marker 0xd9", it appears to be a known issue with a library OpenCV uses. Since we're just using it for outputting the status, it's not a big deal.
