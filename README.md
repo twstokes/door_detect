@@ -1,6 +1,8 @@
 # door_detect
 Detecting a garage door's status with a Foscam camera and OpenCV - written in Python
 
+[Video Demo](https://www.youtube.com/watch?v=fCRlvkibfxc)
+
 The goal of this project is to provide feedback to a user on whether a door is detected open or closed. It uses OpenCV to scan images for expected objects, and determines the physical orientation.
 
 Currently it only supports network-attached Foscam cameras.
