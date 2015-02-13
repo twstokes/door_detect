@@ -18,3 +18,7 @@ Currently it only supports network-attached Foscam cameras.
 * Networked Foscam (though it should be evident in the code how easy it is to replace the image data with any other source)
 * Printed shapes placed on a door
 * Template files of the shapes in the source image
+
+#### Notes:
+
+If you see the following in stdout: "Corrupt JPEG data: 2 extraneous bytes before marker 0xd9" it appears to be a known issue with a library OpenCV uses. Since we're just using it for outputting the status, it's not a big deal.
