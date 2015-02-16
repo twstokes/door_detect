@@ -3,8 +3,8 @@ import sys
 import traceback
 import time
 
-from lib import Detector
-from lib import Foscam
+from door_detect import Detector
+from door_detect.cameras import Foscam
 
 
 if __name__ == '__main__':

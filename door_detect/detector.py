@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from lib import Shape
+from shape import Shape
 import time
 
 # class that detects objects and overlays a box
