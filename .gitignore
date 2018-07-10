@@ -3,3 +3,4 @@ templates/*
 *.pyc
 *.pyo
 config.py
+.DS_Store
