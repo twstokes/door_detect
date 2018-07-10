@@ -86,14 +86,17 @@ class Detector:
               state = "closed"
           else:
               state = "fail"
+        
+          # output detection image based on our passed in option
+          if self.outputDetectionImage == True:
+            # output image with overlays
+            cv2.imwrite(self.outputDir+'/'+str(time.time())+'.png', inputImage)
       else:
           state = "open"
 
-      # output detection image based on our passed in option
-      if self.outputDetectionImage == True:
-        # output image with overlays
-        cv2.imwrite(self.outputDir+'/'+str(time.time())+'.png', inputImage)
-
+      # enable this to show a window in the GUI
+      # cv2.imshow('Image', inputImage)
+      # cv2.waitKey(1)
 
       return state, shapesDict
 
